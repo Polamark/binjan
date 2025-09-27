@@ -15,3 +15,7 @@
 .center-transform {
   translate: -50% -50%;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  scrollbar-width: none;
+}
