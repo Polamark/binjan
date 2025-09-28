@@ -1,0 +1,27 @@
+<div class="flex flex-col justify-center items-center ">
+  <h3 class="text-6xl">People talk about us</h3>
+  <span class="w-[55ch] text-center leading-10 mt-2.5 text-accent-font">I got a job that was in accordance with the salary and field of work, the process of submitting an application was quite cosy</span>
+  <section id="notesCarousel" class="flex pt-30 gap-10 overflow-auto w-screen px-30 no-scrollbar snap-x" (scroll)="onScroll()">
+    @for (noteId of notes; track noteId) {
+      <article [id]="noteId" class="flex flex-none flex-col justify-start items-center relative w-140 h-70 px-5 py-3 rounded-xl bg-white snap-center transition-all duration-300"
+      [ngClass]="{'scale-110 -mt-12.5': noteId == highlightedNote}">
+        <img class="aspect-square border-4 border-white w-25 bg-amber-400 bg-auto rounded-full -mt-15.5"
+             src="person.png">
+        <p class="text-center text-accent-font leading-10">"The work exceeded my expectations—delivered on time,
+          well-structured, and with thoughtful improvements that enhanced the final result."</p>
+        <div class="w-full h-1 bg-section-background">&nbsp;</div>
+        <span class="text-3xl font-semibold">Johner Poorker</span>
+        <span class="text-accent-font">Assistant Director at Tegridy Farms, 📍 South Park, CO</span>
+      </article>
+    }
+  </section>
+  <div class="flex justify-center items-center gap-6">
+    <button class="bg-white cursor-pointer aspect-square w-17.5 shadow-xl active:shadow-none active:scale-95 active:bg-neutral-100 hover:shadow-2xl hover:bg-neutral-200 rounded-full text-6xl transition-all duration-150" (click)="scrollLeft()">
+      <i class="bi bi-arrow-left-short"></i>
+    </button>
+
+    <button class="bg-green-600 text-white cursor-pointer aspect-square w-17.5 shadow-xl active:shadow-none active:scale-95 active:bg-green-700 hover:shadow-2xl hover:bg-green-500 rounded-full text-6xl transition-all duration-150" (click)="scrollRight()">
+      <i class="bi bi-arrow-right-short"></i>
+    </button>
+  </div>
+</div>

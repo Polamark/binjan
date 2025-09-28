@@ -1,0 +1,25 @@
+<ul class="text-accent-font flex gap-10 text-2xl" [ngClass]="{
+  'flex-col': this.vertical()
+}">
+  @for (item of listItems; track item) {
+
+    <li class="flex justify-center items-center w-fit gap-2 group">
+      <div class="relative h-10 w-5 overflow-hidden group-hover:scale-115 transition-all duration-200"
+           [ngClass]="{'scale-0': this.selected != item.toLowerCase()}">
+        <div class="h-full absolute aspect-square border-2 border-selected rounded-full left-[100%] center-transform-x">
+          &nbsp;
+        </div>
+      </div>
+      <a routerLink="/" [fragment]=item.toLowerCase() class="group-hover:text-selected transition-colors duration-300"
+         [ngClass]="{'text-selected': this.selected == item.toLowerCase()}">
+        {{item.toUpperCase()}}
+      </a>
+      <div class="relative h-10 w-5 overflow-hidden group-hover:scale-115 transition-all duration-200"
+           [ngClass]="{'scale-0': this.selected != item.toLowerCase()}">
+        <div class="h-full absolute aspect-square border-2 border-selected rounded-full center-transform-x">
+          &nbsp;
+        </div>
+      </div>
+    </li>
+  }
+</ul>
