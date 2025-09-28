@@ -3,23 +3,25 @@
 }">
   @for (item of listItems; track item) {
 
-    <li class="flex justify-center items-center w-fit gap-2 group">
-      <div class="relative h-10 w-5 overflow-hidden group-hover:scale-115 transition-all duration-200"
+    <li>
+      <a routerLink="/" [fragment]=item.toLowerCase() class="flex justify-center items-center w-fit gap-2 group active:scale-95 transition-all duration-200">
+      <div class="relative h-10 w-5 overflow-hidden group-hover:scale-115 group-active:scale-100 transition-all duration-200"
            [ngClass]="{'scale-0': this.selected != item.toLowerCase()}">
         <div class="h-full absolute aspect-square border-2 border-selected rounded-full left-[100%] center-transform-x">
           &nbsp;
         </div>
       </div>
-      <a routerLink="/" [fragment]=item.toLowerCase() class="group-hover:text-selected transition-colors duration-300"
+      <span class="group-hover:text-selected transition-colors duration-200"
          [ngClass]="{'text-selected': this.selected == item.toLowerCase()}">
         {{item.toUpperCase()}}
-      </a>
-      <div class="relative h-10 w-5 overflow-hidden group-hover:scale-115 transition-all duration-200"
+      </span>
+      <div class="relative h-10 w-5 overflow-hidden group-hover:scale-115 group-active:scale-100 transition-all duration-200"
            [ngClass]="{'scale-0': this.selected != item.toLowerCase()}">
         <div class="h-full absolute aspect-square border-2 border-selected rounded-full center-transform-x">
           &nbsp;
         </div>
       </div>
+    </a>
     </li>
   }
 </ul>
